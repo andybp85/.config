@@ -1,11 +1,11 @@
 #!/bin/bash
 
 rm -f ~/.bash_profile
-ln -s .bash_profile ~/  
+ln -s ~/.config/.bash_profile ~/  
 rm -f ~/.bashrc
-ln -s .bashrc ~/
+ln -s ~/.config/.bashrc ~/
 rm -rf ~/.vim
-ln -s .vim ~/
+ln -s ~/.config/.vim ~/
 rm -f ~/.vimrc
-ln -s .vimrc ~/
+ln -s ~/.config/.vimrc ~/
 
