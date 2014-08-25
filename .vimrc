@@ -21,6 +21,8 @@ Plugin 'gmarik/Vundle.vim'
 "Plugin 'https://github.com/Valloric/YouCompleteMe'
 Plugin 'https://github.com/scrooloose/syntastic'
 Plugin 'https://github.com/sjl/gundo.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'plasticboy/vim-markdown'
 
 "all of your Plugins must be added before the following line
 call vundle#end()            " required
