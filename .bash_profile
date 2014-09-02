@@ -12,7 +12,7 @@ green=$(tput setaf 2)
 blue=$(tput setaf 4)
 bold=$(tput bold)
 reset=$(tput sgr0)
-PS1='\n\[$green$bold\]\d \t\[$reset\]:\[$blue$bold\]\w\[$reset\]\n\[$green$bold\]\h \l\[$reset\] \$ '
+PS1='\n\[$green$bold\]\d \t \l\[$reset\]:\[$blue$bold\]\w\[$reset\]\n\[$green$bold\]\u@\h\[$reset\] \$ '
 export CLICOLOR=1
 export LSCOLORS=exfxcxdxbxegedabagacad
 
