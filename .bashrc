@@ -12,7 +12,7 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-alias vi='vim'
+alias vi='mvim -v'
 alias 'sass_watch'='sass --watch --sourcemap'
 alias 'show_ssh'='sudo lsof -i -n | egrep "\<ssh\>"'
 alias 'diffdir'='diff -yrq'
