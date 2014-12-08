@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/andrew/YST/workspace-yst/tetley/bower_components'
+let g:netrw_dirhist_2='/Users/andrew/YST/workspace-yst/tetley/test/spec/controllers'
+let g:netrw_dirhist_3='/Users/andrew/YST/workspace-yst/tetley/bower_components/angular-cookies'
+let g:netrw_dirhist_4='/Users/andrew/.npm-global'
+let g:netrw_dirhist_5='/Users/andrew/dev/Vagrant-Media-Temple-DV-4.5/puppet/manifests'
+let g:netrw_dirhist_6='/private/etc/apache2/users'

@@ -5,17 +5,17 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls="ls -Fh --color=auto"
-alias ll="ls -laFhtr --color=auto"
-alias la="ls -laFh --color=auto"
+alias ls="ls -FhG"
+alias ll="ls -laFhtrG"
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-alias vi='vim'
+alias vi='mvim -v'
 alias 'sass_watch'='sass --watch --sourcemap'
 alias 'show_ssh'='sudo lsof -i -n | egrep "\<ssh\>"'
 alias 'diffdir'='diff -yrq'
+alias 'markdown'='/usr/local/Markdown.pl'
 
 cd_func ()
 {
@@ -71,3 +71,4 @@ cd_func ()
 
 alias cd=cd_func
 
+export PATH=/usr/gcc-4.9.2/bin:/usr/bin/pear:/usr/local/mysql/support-files:/usr/local/mysql/bin:/Users/andrew/.npm-global/bin:/usr/local/bin:/usr/local/sbin:$PATH
