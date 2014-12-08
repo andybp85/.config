@@ -5,17 +5,14 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls="ls -Fh --color=auto"
-alias ll="ls -laFhtr --color=auto"
-alias la="ls -laFh --color=auto"
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
+alias ls='ls -FhG'
+alias ll='ls -lFhtrG'
+alias la='ls -laFhrG'
 
 alias vi='mvim -v'
-alias 'sass_watch'='sass --watch --sourcemap'
-alias 'show_ssh'='sudo lsof -i -n | egrep "\<ssh\>"'
-alias 'diffdir'='diff -yrq'
+alias sass_watch='sass --watch --sourcemap'
+alias show_ssh='sudo lsof -i -n | egrep "\<ssh\>"'
+alias diffdir='diff -yrq'
 
 cd_func ()
 {
