@@ -103,5 +103,7 @@ if has('statusline')
   set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 endif
 
-
+" switch between windows
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_
 
