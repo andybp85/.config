@@ -68,3 +68,4 @@ cd_func ()
 
 alias cd=cd_func
 
+export PATH="$PATH:$HOME/.npm-global/bin"

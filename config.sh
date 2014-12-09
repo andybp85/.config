@@ -8,4 +8,6 @@ rm -rf ~/.vim
 ln -s ~/.config/.vim ~/
 rm -f ~/.vimrc
 ln -s ~/.config/.vimrc ~/
-
+rm -f ~/.npmrc
+ln -s ~/.config/.nmprc ~/
+mkdir ../.npm-global
