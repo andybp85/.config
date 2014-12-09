@@ -14,6 +14,9 @@ alias sass_watch='sass --watch --sourcemap'
 alias show_ssh='sudo lsof -i -n | egrep "\<ssh\>"'
 alias diffdir='diff -yrq'
 
+alias show_hidden_files='defaults write com.apple.finder AppleShowAllFiles TRUE;killall Finder'
+alias hide_hidden_files='defaults write com.apple.finder AppleShowAllFiles FALSE;killall Finder'
+
 cd_func ()
 {
   local x2 the_new_dir adir index
