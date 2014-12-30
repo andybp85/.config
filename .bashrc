@@ -71,4 +71,4 @@ cd_func ()
 
 alias cd=cd_func
 
-export PATH="$PATH:$HOME/.npm-global/bin"
+export PATH="/usr/local/mysql/bin:$PATH:$HOME/.npm-global/bin"

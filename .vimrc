@@ -1,8 +1,18 @@
-set term=builtin_ansi
+" set term=builtin_ansi
 set number
 set tabstop=2
 set shiftwidth=2
 set expandtab
+set backspace=indent,eol,start
+set copyindent " copy the previous indentation on autoindenting
+set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
+set showmatch " set show matching parenthesis
+set smartcase " ignore case if search pattern is all lowercase, case-sensitive otherwise
+set hlsearch " highlight search terms
+" <Ctrl-l> redraws the screen and removes any search highlighting.
+nnoremap <silent> <C-l> :nohl<CR><C-l>
+set incsearch " show search matches as you type
+
 
 "execute pathogen#infect()
 
@@ -18,32 +28,58 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+
+" Filesystem
+Plugin 'scrooloose/nerdtree'
+Bundle 'twe4ked/vim-peepopen'
+Plugin 'airblade/vim-rooter'
+Bundle 'kien/ctrlp.vim'
+
+" auto suggest and syntaxt checked
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
-Plugin 'claco/jasmine.vim'
-Plugin 'sjl/gundo.vim'
-Plugin 'tpope/vim-fugitive'
+
+" text editing plugins
 Plugin 'gregsexton/MatchTag'
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'burnettk/vim-angular'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'StanAngeloff/php.vim'
-Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'SirVer/ultisnips'
-Plugin 'bling/vim-airline'
-Plugin 'jeetsukumaran/vim-buffergator'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'adamclerk/vim-razor'
-Plugin 'airblade/vim-rooter'
+Plugin 'godlygeek/tabular' "http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
+
+" undo tree editor
+Plugin 'sjl/gundo.vim'
+
+" git 
+Plugin 'tpope/vim-fugitive'
+
+" snippits
+Plugin 'SirVer/ultisnips'
+
+"status line
+Plugin 'bling/vim-airline'
+
+" buffers 
+Plugin 'jeetsukumaran/vim-buffergator'
+
+" debugging
 Bundle 'joonty/vdebug.git'
+
+" lang specific
+Plugin 'adamclerk/vim-razor'
+Plugin 'hylang/vim-hy'
+Plugin 'claco/jasmine.vim'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'burnettk/vim-angular'
+Plugin 'StanAngeloff/php.vim'
+Plugin 'plasticboy/vim-markdown'
 Bundle "pangloss/vim-javascript"
-Bundle 'twe4ked/vim-peepopen'
+
+" color schemes
+"Plugin 'flazz/vim-colorschemes'
+"Plugin 'altercation/vim-colors-solarized'
+Plugin 'croaker/mustang-vim'
+
 
 
 "all of your Plugins must be added before the following line
@@ -53,9 +89,19 @@ filetype plugin indent on
 syntax on
 
 "solarized dark theme
-if has('gui_running')
-  set background=dark
-  colorscheme solarized
+"if has('gui_running')
+  "set background=dark
+  "colorscheme solarized
+"endif
+
+" mustang them
+if &t_Co >= 256 || has("gui_running")
+    colorscheme mustang
+endif
+
+if &t_Co > 2 || has("gui_running")
+    " switch syntax highlighting on, when the terminal has colors
+    syntax on
 endif
 
 "disable auto commenting
@@ -85,6 +131,7 @@ noremap   <Right>  <NOP>
 
 " airline
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#whitespace#enabled = 0
 
 " statusline
 "from https://github.com/spf13/spf13-vim/blob/master/.vimrc
@@ -103,7 +150,47 @@ if has('statusline')
   set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 endif
 
-" switch between windows
-map <C-J> <C-W>j<C-W>_
-map <C-K> <C-W>k<C-W>_
+" Easy window navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
+" change the mapleader from \ to ,
+let mapleader=","
+
+" maps the ,ev and ,sv keys to edit/reload .vimrc
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+" highlight whitespace
+set list
+set listchars=tab:>.,trail:.,extends:#,nbsp:.
+" autocmd filetype html,xml set listchars-=tab:>.
+
+" don't jump lines
+nnoremap j gj
+nnoremap k gk
+
+" strip shift from write, use ;w
+nnoremap ; :
+
+set pastetoggle=<F2>
+
+" whenever you type % you jump to the matching object, and you visually select all the text in between
+noremap % v%
+
+" add sudo with :w!!
+cmap w!! w !sudo tee % >/dev/null
+
+" default command to invoke CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+" Exclude files and directories
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip  
+
+" xmllint with @@x
+map @@x !%xmllint --format --recover -^M
+
+" make python prog
+:set makeprg=python\ %
