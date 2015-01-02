@@ -44,6 +44,7 @@ Plugin 'gregsexton/MatchTag'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'godlygeek/tabular' "http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
+Plugin 'csexton/trailertrash.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 
@@ -164,9 +165,12 @@ nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " highlight whitespace
-set list
-set listchars=tab:>.,trail:.,extends:#,nbsp:.
+" set list
+" set listchars=tab:>.,trail:.,extends:#,nbsp:.
 " autocmd filetype html,xml set listchars-=tab:>.
+
+" TrailorTrash coloring
+hi UnwantedTrailerTrash guibg=black ctermbg=black
 
 " don't jump lines
 nnoremap j gj
@@ -194,3 +198,4 @@ map @@x !%xmllint --format --recover -^M
 
 " make python prog
 :set makeprg=python\ %
+
