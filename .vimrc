@@ -45,6 +45,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'godlygeek/tabular' "http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
 Plugin 'csexton/trailertrash.vim'
+Plugin 'dominika/vim-todos'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 
@@ -74,6 +75,7 @@ Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'burnettk/vim-angular'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'farneman/Expression-Engine-Vim-syntax'
 Bundle "pangloss/vim-javascript"
 
 " color schemes
@@ -177,7 +179,7 @@ nnoremap j gj
 nnoremap k gk
 
 " strip shift from write, use ;w
-nnoremap ; :
+" nnoremap ; :
 
 set pastetoggle=<F2>
 
